@@ -1,0 +1,138 @@
+.wrapper {
+    position: relative;
+}
+
+.main__img {
+    position: relative;
+    z-index: -1;
+    width: 100%;
+    height: 740px;
+    object-fit: cover;
+    margin-top: calc(-1 * var(--header-height));
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.movie__container {
+    position: relative;
+    padding: 0 calc(19.2708%) 150px;
+}
+
+.movie__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 60px;
+}
+
+.info__left {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.movie__name {
+    font-size: 3.6rem;
+    font-weight: bold;
+}
+
+.movie__director,
+.movie__date,
+.movie__genre {
+    font-size: 1.6rem;
+    color: #747474;
+}
+
+.movie__rating {
+    font-size: 2rem;
+    font-weight: 500;
+    color: #747474;
+    align-self: flex-start;
+}
+
+.rating__value {
+    color: #FF454B;
+    font-weight: 700;
+    font-size: 3.2rem;
+}
+
+.movie__story {
+    width: 61.458333vw;
+    padding-bottom: 60px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.movie__story1 {
+    font-size: 2.8rem;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.movie__story2 {
+    line-height: 1.6;
+    font-size: 1.6rem;
+    color: #747474;
+}
+
+.movie__actors {
+    padding-bottom: 60px;
+}
+
+.movie__actor1 {
+    font-size: 2.8rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.movie__actor2 {
+    display: grid;
+    grid-template-columns: repeat(4, 13.541667vw);
+    grid-row-gap: 40px;
+    grid-column-gap: 2.447917vw;
+    justify-content: center;
+}
+
+.actor__card {
+    text-align: center;
+}
+
+.actor__img {
+    width: 13.541667vw;
+    aspect-ratio: 260 / 340;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.actor__name {
+    margin-top: 8px;
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #747474;
+}
+
+.movie__comments {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.comment__title {
+    font-size: 2.8rem;
+    font-weight: bold;
+}
+
+.comment_write {
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    letter-spacing: -0.0625em;
+    color: #767676;
+    border: 1px solid #bbbbbb;
+    background-color: #ffffff;
+    padding: 9px 13px 9px 13px;
+    border-radius: 6px;
+    cursor: pointer;
+}

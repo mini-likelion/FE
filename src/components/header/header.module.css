@@ -1,4 +1,8 @@
 .header__wrapper {
+  position: relative; 
+  height: var(--header-height);
+  z-index: 1;
+  background-color: transparent;
   display: flex;
   justify-content: space-between;
   align-items: center;
