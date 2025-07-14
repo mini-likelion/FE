@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <header className={styles.header__wrapper}>
       <div className={styles.header__icon}>
-        <p>미니해커톤</p>
+        <p>누누티비</p>
       </div>
       <nav className={styles.header__loginBox}>
         <button className={styles.header__login}>로그인</button>
