@@ -1,14 +1,17 @@
 import styles from './mainPage.module.css';
 import { useEffect, useState } from 'react';
+
 import { movieList } from '../../apis/movie';
+
 import PosterCard from '../../components/posterCard/PosterCard';
+import searchGlass from '../../assets/pic/search_glass.svg';
 
 const MainPage = () => {
   const [movies, setMovies] = useState([]);
   const data = [
     {
-      'title_kor': '외계+인 1부',
-      'title_eng': '외계+인 1부',
+      'title_kor': '외계인 1부',
+      'title_eng': '외계인 1부',
       'poster_url': 'https://image.tmdb.org/t/p/original/ynyN9hdxL5vq7GnSX8Fdz3TfoTE.jpg',
       'genre': 'SF, 액션, 판타지, 모험',
       'showtime': '142',
@@ -399,13 +402,18 @@ const MainPage = () => {
 
   return (
     <div className={styles.main__wrapper}>
-      <h1>메인 페이지</h1>
+      <div className={styles.searchContainer}>
+        <input type="text" className={styles.main__input} placeholder="보고 싶은 영화를 검색하세요"/>
+        <div className={styles.searchIcon}>
+          <img src={searchGlass} alt="Search" />
+        </div>
+      </div>
+      <h1>금주의 영화</h1>
       <section className={styles.main__items}>
         {movies.map((items) => (
           <PosterCard props={items} />
         ))}
       </section>
-      <div className={styles.main__pages}></div>
     </div>
   );
 };
