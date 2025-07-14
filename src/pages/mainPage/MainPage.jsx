@@ -25,7 +25,7 @@ const MainPage = () => {
   return (
     <div className={styles.main__wrapper}>
       <div className={styles.searchContainer}>
-        <input type="text" className={styles.main__input} placeholder="보고 싶은 영화를 검색하세요"/>
+        <input type="text" className={styles.main__input} placeholder="보고 싶은 영화를 검색하세요" />
         <div className={styles.searchIcon}>
           <img src={searchGlass} alt="Search" />
         </div>
