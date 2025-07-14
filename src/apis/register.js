@@ -7,6 +7,6 @@ export const register = async (username, password1, password2, nickname) => {
     'password2': password2,
     'nickname': nickname,
   };
-  const response = await api.post('/dj/login', data);
+  const response = await api.post('/dj/register/', data);
   return response.data.user;
 };

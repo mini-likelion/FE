@@ -1,6 +1,7 @@
 import styles from './registerPage.module.css';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { register } from '../../apis/register';
 
 const RegisterPage = () => {
   const [id, setId] = useState('');
