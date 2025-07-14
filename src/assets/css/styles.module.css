@@ -10,4 +10,5 @@
   line-height: 1.4;
   letter-spacing: -0.0625em;
   background-color: #f5f5f5;
+  --header-height: 70px;
 }
