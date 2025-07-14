@@ -1,6 +1,10 @@
 .card__wrapper {
+  display: block;
+  text-decoration: none;
   box-sizing: border-box;
+  color: inherit;
 }
+
 .card__box {
   width: 100%;
 }
@@ -9,22 +13,27 @@
   aspect-ratio: 2/3;
   border-radius: 12px;
   height: auto;
+  border: 2.5px solid rgba(110, 87, 255, 0);
+  transition: border-color 0.4s ease;
 }
 .card__title {
-  margin-top: 14px;
-  font-size: 2rem;
-  font-weight: 600;
-}
-.card__title {
-  font-size: 2rem;
-  font-weight: 600;
-  line-height: 1.4;
-  letter-spacing: -0.0625em;
-}
-.card__date {
+  margin-top: 8px;
   font-size: 1.6rem;
   font-weight: 400;
+  color: #767676;
   line-height: 1.4;
   letter-spacing: -0.0625em;
-  color: #747474;
+  cursor: pointer;
+  transition: color 0.4s ease, font-weight 0.4s ease;
+}
+
+.card__wrapper:hover .card__poster {
+  border-color: rgba(110, 87, 255, 1);
+  color: #000000;
+  font-weight: 600;
+}
+
+.card__wrapper:hover .card__title {
+  color: #6E57FF;
+  font-weight: 600;
 }
