@@ -1,0 +1,10 @@
+.card__wrapper {
+  display: flex;
+}
+
+.card__poster {
+  width: 200px;
+}
+
+.card__title {
+}
