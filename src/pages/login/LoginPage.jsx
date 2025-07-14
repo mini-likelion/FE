@@ -1,14 +1,25 @@
 import styles from './loginPage.module.css';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { login } from '../../apis/login';
 
 const LoginPage = () => {
+  const [userName, setUserName] = useState('');
+  const [passWord, setPassWord] = useState('');
+  const Navigate = useNavigate();
   const [id, setId] = useState('');
   const [pw, setPw] = useState('');
-  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    try {
+      const { access, user } = await login(userName, passWord);
+      alert(`${user.nickname}님 환영합니다.`);
+      Navigate('/');
+      // 여기에 토큰에서 jwt넣고, 유저 상태 업데이트 해야 함.
+    } catch (error) {
+      alert('로그인 실패! 아이디와 비밀번호를 확인하세요.');
+    }
   };
 
   return (
