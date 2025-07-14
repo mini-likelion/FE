@@ -106,6 +106,7 @@
     aspect-ratio: 260 / 340;
     object-fit: cover;
     border-radius: 12px;
+    box-shadow: 3px 3px 10px 1px rgba(0, 0, 0, 0.12);
 }
 
 .actor__name {
