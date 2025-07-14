@@ -4,8 +4,6 @@ import { useState } from 'react';
 import { login } from '../../apis/login';
 
 const LoginPage = () => {
-  const [userName, setUserName] = useState('');
-  const [passWord, setPassWord] = useState('');
   const Navigate = useNavigate();
   const [id, setId] = useState('');
   const [pw, setPw] = useState('');
@@ -13,7 +11,7 @@ const LoginPage = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const { access, user } = await login(userName, passWord);
+      const { access, user } = await login(id, pw);
       alert(`${user.nickname}님 환영합니다.`);
       Navigate('/');
       // 여기에 토큰에서 jwt넣고, 유저 상태 업데이트 해야 함.
