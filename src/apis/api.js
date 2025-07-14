@@ -1,6 +1,10 @@
 import axios from 'axios';
+
 const api = axios.create({
-  baseURL: 'http://43.200.28.219:1313',
+    baseURL: 'https://thehotpotato.store/',
+    headers: {
+        'Content-Type': 'application/json',
+    }
 });
 
 export default api;

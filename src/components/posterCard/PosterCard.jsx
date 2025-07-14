@@ -1,19 +1,12 @@
-import stlyes from './posterCard.module.css';
+import styles from './posterCard.module.css';
 import { useState } from 'react';
 
-const PosterCard = ({ props }) => {
+const PosterCard = ({ movie }) => {
   return (
-    <section className={stlyes.card__wrapper}>
-      <div className={stlyes.card__box}>
-        <img src={props.poster_url} className={stlyes.card__poster} alt="포스터" />
-        <p className={stlyes.card__title}>{props.title_kor}</p>
-        <p className={stlyes.card__date}>
-          {new Date(props.release_date).toLocaleDateString('ko-KR', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-          })}
-        </p>
+    <section className={styles.card__wrapper}>
+      <div className={styles.card__box}>
+        <img src={movie.poster_url} className={styles.card__poster} alt="포스터" />
+        <p className={styles.card__title}>{movie.title_kor}</p>
       </div>
     </section>
   );
