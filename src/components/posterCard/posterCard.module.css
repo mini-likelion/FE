@@ -3,7 +3,8 @@
 }
 
 .card__poster {
-  width: 200px;
+  width: 300px;
+  aspect-ratio: 2 / 3;
 }
 
 .card__title {
