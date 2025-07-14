@@ -67,4 +67,9 @@
     font-size: 1.6rem;
     font-weight: 600;
     cursor: pointer;
+    transition: background-color 0.4s ease;
+}
+
+.register__button:hover {
+    background-color: #5c43ff;
 }
