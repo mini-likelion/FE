@@ -54,7 +54,7 @@
 
 .register__input:focus {
     outline: none;
-    box-shadow: 0 0register 0 2px #6E57FF inset;
+    box-shadow: 0 0 0 2px #6E57FF inset;
 }
 
 .register__button {
