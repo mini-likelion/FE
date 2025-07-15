@@ -5,7 +5,7 @@ import { LoginContext } from '../../context/LoginContextProvider';
 
 const Header = () => {
   const location = useLocation();
-  const { islogin } = useContext(LoginContext);
+  const { isLogin, logout } = useContext(LoginContext);
 
   const isDetail = /^\/movie\/\d+/.test(location.pathname);
 
@@ -20,20 +20,32 @@ const Header = () => {
         </Link>
       </div>
 
-      <nav className={styles.header__loginBox}>
-        {showRegister && (
-          <Link to="/login">
-            <button className={`${styles.header__login} ${isDetail ? styles.header__login_detail : ''}`}>로그인</button>
-          </Link>
-        )}
-        {showLogin && (
-          <Link to="/register">
-            <button className={`${styles.header__register} ${isDetail ? styles.header__register_detail : ''}`}>
-              회원가입
-            </button>
-          </Link>
-        )}
-      </nav>
+      {isLogin ? (
+        <nav>
+          <button
+            className={`${styles.header__register} ${isDetail ? styles.header__register_detail : ''}`}
+            onClick={logout}>
+            로그아웃
+          </button>
+        </nav>
+      ) : (
+        <nav className={styles.header__loginBox}>
+          {showRegister && (
+            <Link to="/login">
+              <button className={`${styles.header__login} ${isDetail ? styles.header__login_detail : ''}`}>
+                로그인
+              </button>
+            </Link>
+          )}
+          {showLogin && (
+            <Link to="/register">
+              <button className={`${styles.header__register} ${isDetail ? styles.header__register_detail : ''}`}>
+                회원가입
+              </button>
+            </Link>
+          )}
+        </nav>
+      )}
     </header>
   );
 };

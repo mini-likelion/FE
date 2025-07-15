@@ -1,12 +1,12 @@
 import styles from './loginPage.module.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useContext } from 'react';
 import { LoginContext } from '../../context/LoginContextProvider';
 
 const LoginPage = () => {
   const [id, setId] = useState('');
   const [pw, setPw] = useState('');
-  const { login } = useContext(LoginContext);
+  const { login, userInfo } = useContext(LoginContext);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -14,9 +14,14 @@ const LoginPage = () => {
       await login(id, pw);
       alert('로그인 성공');
     } catch (error) {
+      console.log(error);
       alert('로그인 실패');
     }
   };
+  // ★ userInfo가 업데이트될 때마다 콘솔에 찍는다
+  useEffect(() => {
+    console.log('업데이트된 userInfo:', userInfo);
+  }, [userInfo]);
 
   return (
     <section className={styles.login__container}>

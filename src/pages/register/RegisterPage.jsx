@@ -1,17 +1,25 @@
 import styles from './registerPage.module.css';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import { register } from '../../apis/register';
+import { useContext } from 'react';
+import { LoginContext } from '../../context/LoginContextProvider';
 
 const RegisterPage = () => {
   const [id, setId] = useState('');
   const [pw, setPw] = useState('');
   const [cpw, setCpw] = useState('');
   const [nick, setNick] = useState('');
-  const navigate = useNavigate();
+  const { register } = useContext(LoginContext);
 
   const handleRegister = async (e) => {
     e.preventDefault();
+    try {
+      await register(id, pw, cpw, nick);
+      alert('회원가입 성공');
+    } catch (error) {
+      console.log(error);
+      alert('회원가입 실패');
+    }
   };
 
   return (
@@ -33,7 +41,7 @@ const RegisterPage = () => {
                 onChange={(e) => setId(e.target.value)}
               />
             </div>
-            
+
             <div className={styles.register__form__2}>
               <label htmlFor="register-pw" className={styles.register__label}>
                 비밀번호
@@ -58,7 +66,7 @@ const RegisterPage = () => {
                 className={styles.register__input}
                 placeholder="비밀번호를 다시 입력하세요"
                 value={cpw}
-                onChange={(e) => setCpw(e.target.value)} 
+                onChange={(e) => setCpw(e.target.value)}
               />
             </div>
 
@@ -72,7 +80,7 @@ const RegisterPage = () => {
                 className={styles.register__input}
                 placeholder="닉네임을 입력하세요"
                 value={nick}
-                onChange={(e) => setNick(e.target.value)} 
+                onChange={(e) => setNick(e.target.value)}
               />
             </div>
 
