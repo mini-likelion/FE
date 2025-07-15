@@ -1,5 +1,4 @@
 import styles from './registerPage.module.css';
-import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useContext } from 'react';
 import { LoginContext } from '../../context/LoginContextProvider';
@@ -17,7 +16,6 @@ const RegisterPage = () => {
       await register(id, pw, cpw, nick);
       alert('회원가입 성공');
     } catch (error) {
-      console.log(error);
       alert('회원가입 실패');
     }
   };

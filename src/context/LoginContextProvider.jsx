@@ -1,6 +1,6 @@
 import { useState, createContext } from 'react';
 import Cookies from 'js-cookie';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import apiLogin from '../apis/apiLogin';
 
 export const LoginContext = createContext();
@@ -30,6 +30,7 @@ const LoginContextProvider = ({ children }) => {
     const access = data.access; // jwt 현재 암호화
     //로그인 되었으면 세팅으로 상태값 변경
     loginSetting(access, user);
+    loginCheck();
     navigate('/');
   };
 
@@ -41,8 +42,14 @@ const LoginContextProvider = ({ children }) => {
       'password2': password2,
       'nickname': nickname,
     };
-    const response = await apiLogin.post('/dj/registration/', info);
-    navigate('/login');
+    try {
+      const response = await apiLogin.post('/dj/registration/', info);
+      console.log(response.data.user);
+      navigate('/login');
+    } catch (error) {
+      console.log('에러', error);
+      console.log('상세:', error.response?.data);
+    }
   };
 
   // 로그인 세팅 -> 로그인 되었을 때, state들을 어떻게 바꾸는지
@@ -79,6 +86,7 @@ const LoginContextProvider = ({ children }) => {
     try {
       // 쿠키에서 JWT 가져오기
       const jwt = Cookies.get('access');
+      console.log(jwt);
 
       if (jwt) {
         console.log('로그인 상태입니다.');
