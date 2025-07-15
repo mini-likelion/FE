@@ -8,6 +8,10 @@ const DetailedPage = () => {
     const [movie, setMovie] = useState(null);
 
     useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [id]);
+
+    useEffect(() => {
         async function fetchDetail() {
         try {
             const data = await movieDetail(id);
@@ -19,12 +23,14 @@ const DetailedPage = () => {
         fetchDetail();
     }, [id]);
 
-    if (!movie) return <div>Loading…</div>;
+    if (!movie) return <div className={styles.loading__wrapper}><div className={styles.loading}>로딩 중...</div></div>;
 
     const d = new Date(movie.release_date);
     const year  = d.getFullYear();
     const month = d.getMonth() + 1;
     const day   = d.getDate();
+
+    const roundedRating = Number(movie.rating).toFixed(1);
 
     return (
         <div className={styles.wrapper}>
@@ -47,7 +53,7 @@ const DetailedPage = () => {
                         </p>
                     </div>
                     <div className={styles.movie__rating}>
-                        평점 <span className={styles.rating__value}>{movie.rating}</span>
+                        평점 <span className={styles.rating__value}>{roundedRating}</span>
                     </div>
                 </div>
 
@@ -57,7 +63,7 @@ const DetailedPage = () => {
                 </div>
 
                 <div className={styles.movie__actors}>
-                    <h2 className={styles.movie__actor1}>출연 배우</h2>
+                    <h2 className={styles.movie__actor1}>인물 정보</h2>
                     <div className={styles.movie__actor2}>
                         {movie.actors.map((actor, idx) => (
                             <div key={idx} className={styles.actor__card}>

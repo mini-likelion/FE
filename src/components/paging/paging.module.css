@@ -1,29 +1,68 @@
-/* paging.module.css */
-.pagination {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  padding: 0;
-  list-style: none;
-  margin: 16px 0;
+.paging__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 150px 0 50px;
+    gap: 8px;
 }
 
-.pageItem {
-  margin: 0;
-  font-size: 4rem;
+.page__number {
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    border: 1px solid #eeeeee;
+    background: #ffffff;
+    color: #bbbbbb;
+    font-size: 1.4rem;
+    font-weight: 400;
+    padding: 10px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.pageLink {
-  padding: 4px 8px;
-  text-decoration: none;
-  color: #333;
+.page__active {
+    background-color: #6E57FF;
+    color: #FFFFFF;
+    font-weight: 600;
 }
 
-.pageItem.active .pageLink {
-  border-bottom: 2px solid #333;
-  font-weight: bold;
+.page__arrow {
+    border: 1px solid #eeeeee;
+    background: #ffffff;
+    padding: 12.5px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
 }
 
-.pageLink:hover {
-  color: #000;
+.page__doubleArrow {
+    border: 1px solid #eeeeee;
+    background: #ffffff;
+    padding: 12.5px 15.5px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.page__number,
+.page__arrow,
+.page__doubleArrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page__number:not(.page__active):hover,
+.page__arrow:hover,
+.page__doubleArrow:hover {
+    background-color: #bbbbbb;
+}
+
+.page__number:not(.page__active):hover {
+    color: #ffffff;
+}
+
+.page__arrow:hover .arrowIcon,
+.page__doubleArrow:hover .arrowIcon {
+    filter: brightness(0) invert(1);
+    transition: filter 0.2s ease;
 }
