@@ -38,17 +38,14 @@ const MainPage = () => {
   };
 
   const totalPages = Math.ceil(movies.length / 16);
-  const pagedMovies = movies.slice(
-    (currentPage - 1) * 16,
-    currentPage * 16
-  );
+  const pagedMovies = movies.slice((currentPage - 1) * 16, currentPage * 16);
 
   return (
     <div className={styles.main__wrapper}>
       <div className={styles.searchContainer}>
-        <input 
-          type="text" 
-          className={styles.main__input} 
+        <input
+          type="text"
+          className={styles.main__input}
           placeholder="보고 싶은 영화를 검색하세요"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
@@ -67,11 +64,7 @@ const MainPage = () => {
         ))}
       </section>
 
-      <Paging 
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onPageChange={setCurrentPage}
-      />
+      <Paging currentPage={currentPage} totalPages={totalPages} onPageChange={setCurrentPage} />
     </div>
   );
 };
