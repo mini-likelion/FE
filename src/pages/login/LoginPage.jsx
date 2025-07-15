@@ -1,22 +1,20 @@
 import styles from './loginPage.module.css';
-import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import { login } from '../../apis/login';
+import { useContext } from 'react';
+import { LoginContext } from '../../context/LoginContextProvider';
 
 const LoginPage = () => {
-  const Navigate = useNavigate();
   const [id, setId] = useState('');
   const [pw, setPw] = useState('');
+  const { login } = useContext(LoginContext);
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const { access, user } = await login(id, pw);
-      alert(`${user.nickname}님 환영합니다.`);
-      Navigate('/');
-      // 여기에 토큰에서 jwt넣고, 유저 상태 업데이트 해야 함.
+      await login(id, pw);
+      alert('로그인 성공');
     } catch (error) {
-      alert('로그인 실패! 아이디와 비밀번호를 확인하세요.');
+      alert('로그인 실패');
     }
   };
 
@@ -39,7 +37,7 @@ const LoginPage = () => {
                 onChange={(e) => setId(e.target.value)}
               />
             </div>
-            
+
             <div className={styles.login__form__2}>
               <label htmlFor="login-pw" className={styles.login__label}>
                 비밀번호

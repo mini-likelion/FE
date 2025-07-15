@@ -1,6 +1,7 @@
-import { useState, useEffect, createContext } from 'react';
+import { useState, createContext } from 'react';
 import Cookies from 'js-cookie';
-import api from '../apis/api';
+import { Navigate, useNavigate } from 'react-router-dom';
+
 import * as auth from '../apis/auth';
 
 export const LoginContext = createContext();
@@ -8,10 +9,12 @@ export const LoginContext = createContext();
 const LoginContextProvider = ({ children }) => {
   const [isLogin, setLogin] = useState(false); // 로그인 여부
   const [userInfo, setUserInfo] = useState({}); // 코멘트에 쓸 정보
+  const Navigate = useNavigate();
 
   // 로그아웃
   const logout = () => {
-    setLogin(false);
+    logoutSetting();
+    Navigate('/');
   };
 
   // 로그인
@@ -26,7 +29,7 @@ const LoginContextProvider = ({ children }) => {
     if (status === 200) {
       //로그인 되었으면 세팅으로 상태값 변경
       loginSetting(access, user);
-      alert('로그인 성공');
+      Navigate('/');
     }
   };
 
@@ -75,9 +78,11 @@ const LoginContextProvider = ({ children }) => {
     }
   };
 
-  useEffect(() => {}, []);
-
-  return <LoginContext.Provider value={{ isLogin }}>{children}</LoginContext.Provider>;
+  return (
+    <LoginContext.Provider value={{ isLogin, userInfo, login, logout, loginSetting, logoutSetting, loginCheck }}>
+      {children}
+    </LoginContext.Provider>
+  );
 };
 
 export default LoginContextProvider;
